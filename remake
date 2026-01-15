@@ -84,14 +84,15 @@ firmware_repo="https://github.com/ophub/firmware"
 script_repo="https://github.com/ophub/luci-app-amlogic"
 
 # Set the kernel download repository from github.com
-# kernel_repo="https://github.com/syntax-xidz/kernel"
-kernel_repo="https://github.com/ophub/kernel"
+kernel_repo="https://github.com/syntax-xidz/kernel"
+# kernel_repo="https://github.com/ophub/kernel"
 # Set the tags(kernel_xxx) of the default kernel that can be replaced via the [ -u ] parameter
 default_tags="stable"
 kernel_usage=""
 # Set the list of kernels used by default(Selectable version)
 stable_kernel=("6.1.y" "6.12.y")
 flippy_kernel=(${stable_kernel[@]})
+dev_kernel=(${stable_kernel[@]})
 beta_kernel=(${stable_kernel[@]})
 rk3588_kernel=("6.1.y")
 rk35xx_kernel=("6.1.y")
@@ -222,6 +223,7 @@ init_var() {
                 IFS="_"
                 stable_kernel=(${2})
                 flippy_kernel=(${2})
+                dev_kernel=(${2})
                 beta_kernel=(${2})
                 specific_kernel=(${2})
                 IFS="${oldIFS}"
